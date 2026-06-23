@@ -170,38 +170,46 @@
 
   /* Mobile styling to match centered certificate card (iPhone-like) */
   @media screen and (max-width: 480px) {
-    /* Center the certificate and give it a card look */
-    #print-area { padding: 20px; display: flex; justify-content: center; }
+    /* Page background and center the certificate card to match screenshot */
+    body { background: #f6f7f8; }
+    #print-area { padding: 26px 12px; display: flex; justify-content: center; }
     #print-area ._3KoXT {
       width: 100%;
       max-width: 760px;
-      background: #fff;
+      background: #ffffff;
       border-radius: 18px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      padding: 18px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      padding: 20px 18px;
       box-sizing: border-box;
+      transform-origin: top center;
     }
 
     /* Photo + name area stays horizontal and compact */
     #print-area ._3x3ga { display: flex; gap: 14px; align-items: center; flex-wrap: nowrap; }
-    #print-area ._1X8E6 { width: 88px; height: auto; flex: 0 0 auto; border-radius: 8px; }
+    #print-area ._1X8E6 { width: 92px; height: auto; flex: 0 0 auto; border-radius: 8px; }
 
     /* Metadata: allow wrapping but prefer side-by-side when space allows */
     #print-area .etZl4 { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
     #print-area .VSJNg { min-width: 120px; }
 
     /* Overall score area stays side-by-side; svg slightly smaller */
-    #print-area ._GjP1 { display: flex; align-items: center; gap: 16px; }
-    #print-area ._3idli { display: flex; gap: 16px; align-items: center; }
-    #print-area ._2JU86 svg, #print-area ._2JU86 > svg { width: 140px; height: 140px; }
+    #print-area ._GjP1 { display: flex; align-items: center; gap: 18px; }
+    #print-area ._3idli { display: flex; gap: 18px; align-items: center; }
+    #print-area ._2JU86 svg, #print-area ._2JU86 > svg { width: 150px; height: 150px; }
 
     /* Subscores: horizontal scrolling if needed */
-    #print-area ._2oOJ9 { display: flex; gap: 10px; flex-wrap: nowrap; overflow-x: auto; padding: 6px 0; }
-    #print-area ._3-ZzQ { min-width: 110px; flex: 0 0 auto; text-align: center; }
+    /* Make subscores visually similar: centered values and spacing */
+    #print-area ._2oOJ9 { display: flex; gap: 12px; flex-wrap: nowrap; overflow-x: auto; padding: 8px 4px; }
+    #print-area ._3-ZzQ { min-width: 120px; flex: 0 0 auto; text-align: center; padding: 12px 10px; background: transparent; border-radius: 8px; }
 
     /* Headings scaled for mobile */
-    #print-area .U9vjW { font-size: 16px; margin: 0 0 8px; }
-    #print-area ._2PQ62 { font-size: 13px; }
+    #print-area .U9vjW { font-size: 16px; margin: 0 0 10px; color: #222; }
+    #print-area ._2PQ62 { font-size: 13px; color: #333; }
+    /* Slightly reduce overall card scale on very small phones to fit like screenshot */
+    @media screen and (max-width: 375px) {
+      #print-area ._3KoXT { transform: scale(0.96); }
+    }
   }
 </style>
 <!-- saved from url=(0043)https://certs.duollingo.kz/9u3ol6xwafit5rp2/ -->
