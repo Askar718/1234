@@ -1,0 +1,30 @@
+
+function piResponse() {
+		piSetCookie('visitor_id208162', '1060975170', 3650);
+			piSetCookie('visitor_id208162-hash', 'ea5b89880e52766902a7ec5f264edd11a2d41cb29ca999752ed480f102c7c00d43cc807fdd3a2814f0837e29a854f42b2bfa02b3', 3650);
+		
+		if (document.location.protocol != "https:" || (document.location.protocol == "https:" && true)) {
+		var analytics_link = document.location.protocol + "//" + "go.duolingo.com/analytics?";
+		pi.tracker.visitor_id='1060975170';
+
+				pi.tracker.visitor_id_sign='ea5b89880e52766902a7ec5f264edd11a2d41cb29ca999752ed480f102c7c00d43cc807fdd3a2814f0837e29a854f42b2bfa02b3';
+		
+				pi.tracker.campaign_id='1262';
+		
+		var variables = 'conly=true';
+		for (property in pi.tracker) {
+					variables += "&" + property + "=" + encodeURIComponent(pi.tracker[property]);
+				}
+		var headID = document.getElementsByTagName("head")[0];
+		piScriptObj[piScriptNum] = document.createElement('script');
+		piScriptObj[piScriptNum].type = 'text/javascript';
+		piScriptObj[piScriptNum].src = analytics_link + variables;
+		headID.appendChild(piScriptObj[piScriptNum]);
+		piScriptObj[piScriptNum].onload = function() { return; }
+	}
+	}
+piResponse();
+
+
+
+
