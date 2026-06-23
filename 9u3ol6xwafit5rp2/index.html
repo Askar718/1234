@@ -168,49 +168,6 @@
     }
   }
 
-  /* Mobile styling to match centered certificate card (iPhone-like) */
-  @media screen and (max-width: 480px) {
-    /* Page background and center the certificate card to match screenshot */
-    body { background: #f6f7f8; }
-    #print-area { padding: 26px 12px; display: flex; justify-content: center; }
-    #print-area ._3KoXT {
-      width: 100%;
-      max-width: 760px;
-      background: #ffffff;
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      padding: 20px 18px;
-      box-sizing: border-box;
-      transform-origin: top center;
-    }
-
-    /* Photo + name area stays horizontal and compact */
-    #print-area ._3x3ga { display: flex; gap: 14px; align-items: center; flex-wrap: nowrap; }
-    #print-area ._1X8E6 { width: 92px; height: auto; flex: 0 0 auto; border-radius: 8px; }
-
-    /* Metadata: allow wrapping but prefer side-by-side when space allows */
-    #print-area .etZl4 { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
-    #print-area .VSJNg { min-width: 120px; }
-
-    /* Overall score area stays side-by-side; svg slightly smaller */
-    #print-area ._GjP1 { display: flex; align-items: center; gap: 18px; }
-    #print-area ._3idli { display: flex; gap: 18px; align-items: center; }
-    #print-area ._2JU86 svg, #print-area ._2JU86 > svg { width: 150px; height: 150px; }
-
-    /* Subscores: horizontal scrolling if needed */
-    /* Make subscores visually similar: centered values and spacing */
-    #print-area ._2oOJ9 { display: flex; gap: 12px; flex-wrap: nowrap; overflow-x: auto; padding: 8px 4px; }
-    #print-area ._3-ZzQ { min-width: 120px; flex: 0 0 auto; text-align: center; padding: 12px 10px; background: transparent; border-radius: 8px; }
-
-    /* Headings scaled for mobile */
-    #print-area .U9vjW { font-size: 16px; margin: 0 0 10px; color: #222; }
-    #print-area ._2PQ62 { font-size: 13px; color: #333; }
-    /* Slightly reduce overall card scale on very small phones to fit like screenshot */
-    @media screen and (max-width: 375px) {
-      #print-area ._3KoXT { transform: scale(0.96); }
-    }
-  }
 </style>
 <!-- saved from url=(0043)https://certs.duollingo.kz/9u3ol6xwafit5rp2/ -->
 <html lang="en"><!--<![endif]-->
@@ -254,7 +211,7 @@
       html, body { min-height: 100vh !important; background: #f5f6f7 !important; }
       body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; }
       #print-area { padding: 22px 12px 28px !important; display: flex !important; justify-content: center !important; }
-      ._3NJix {
+      #print-area ._3NJix {
         width: min(100%, 740px) !important;
         max-width: min(740px, calc(100vw - 24px)) !important;
         margin: 0 auto !important;
@@ -266,11 +223,11 @@
         box-sizing: border-box !important;
         overflow: visible !important;
       }
-      ._1yBCp {
+      #print-area ._1yBCp {
         width: 160px !important;
         max-width: 160px !important;
       }
-      ._3KoXT {
+      #print-area ._3KoXT {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
@@ -280,29 +237,29 @@
         padding-bottom: 18px !important;
         border-bottom: 1px solid rgba(0,0,0,0.08) !important;
       }
-      ._3x3ga {
+      #print-area ._3x3ga {
         display: flex !important;
         gap: 14px !important;
         flex-wrap: wrap !important;
         padding-bottom: 18px !important;
         border-bottom: 1px solid rgba(0,0,0,0.08) !important;
       }
-      ._1X8E6 {
+      #print-area ._1X8E6 {
         width: 92px !important;
         height: auto !important;
         border-radius: 16px !important;
       }
-      ._3x3ga .OTMDM { gap: 8px !important; }
-      .etZl4 {
+      #print-area ._3x3ga .OTMDM { gap: 8px !important; }
+      #print-area .etZl4 {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 8px !important;
       }
-      .VSJNg {
+      #print-area .VSJNg {
         min-width: 0 !important;
         width: auto !important;
       }
-      ._GjP1 {
+      #print-area ._GjP1 {
         display: flex !important;
         flex-wrap: wrap !important;
         justify-content: space-between !important;
@@ -312,7 +269,7 @@
         min-height: 170px !important;
         gap: 16px !important;
       }
-      ._3idli {
+      #print-area ._3idli {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
@@ -320,25 +277,25 @@
         width: 100% !important;
         min-width: 0 !important;
       }
-      ._2JU86 {
+      #print-area ._2JU86 {
         width: 156px !important;
         min-width: 156px !important;
         padding: 12px !important;
         border-right: none !important;
         border-bottom: 1px solid rgba(0,0,0,0.08) !important;
       }
-      ._2JU86 svg, ._2JU86 > svg { width: 150px !important; height: 150px !important; }
-      .w-jrB {
+      #print-area ._2JU86 svg, #print-area ._2JU86 > svg { width: 150px !important; height: 150px !important; }
+      #print-area .w-jrB {
         width: auto !important;
         max-width: calc(100% - 170px) !important;
         flex-wrap: wrap !important;
         min-width: 0 !important;
       }
-      ._1kP6M {
+      #print-area ._1kP6M {
         width: auto !important;
         padding: 0 !important;
       }
-      ._2oOJ9 {
+      #print-area ._2oOJ9 {
         display: flex !important;
         flex-wrap: wrap !important;
         overflow-x: hidden !important;
@@ -350,7 +307,7 @@
         width: 100% !important;
         box-sizing: border-box !important;
       }
-      ._3-ZzQ {
+      #print-area ._3-ZzQ {
         flex: 1 1 calc(50% - 12px) !important;
         min-width: 140px !important;
         max-width: calc(50% - 12px) !important;
@@ -360,11 +317,11 @@
         border: none !important;
         box-sizing: border-box !important;
       }
-      .U9vjW { font-size: 16px !important; margin: 0 0 10px !important; color: #222 !important; }
-      ._2PQ62 { font-size: 13px !important; color: #333 !important; }
-      ._2pXb2 { font-size: 16px !important; }
-      .MXncZ { font-size: 13px !important; margin: 0 !important; }
-      ._3Imfm, ._3_XhK { color: #777 !important; }
+      #print-area .U9vjW { font-size: 16px !important; margin: 0 0 10px !important; color: #222 !important; }
+      #print-area ._2PQ62 { font-size: 13px !important; color: #333 !important; }
+      #print-area ._2pXb2 { font-size: 16px !important; }
+      #print-area .MXncZ { font-size: 13px !important; margin: 0 !important; }
+      #print-area ._3Imfm, #print-area ._3_XhK { color: #777 !important; }
     }
   </style>
   <link rel="stylesheet" href="print.css" media="print">
