@@ -167,6 +167,36 @@
       max-width: 150px;
     }
   }
+
+  /* Keep the certificate block layout identical on small phones */
+  @media screen and (max-width: 480px) {
+    /* Allow horizontal scrolling if needed but keep desktop-like widths */
+    #print-area { padding: 10px; overflow-x: auto; }
+
+    /* Main certificate wrapper: preserve desktop max width and center */
+    #print-area ._3KoXT { max-width: 920px; width: 920px; margin: 0 auto; }
+
+    /* Photo + name area stays in a row (not stacked) */
+    #print-area ._3x3ga { display: flex; flex-direction: row; gap: 12px; align-items: center; flex-wrap: nowrap; }
+    #print-area ._1X8E6 { width: 120px; height: auto; flex: 0 0 auto; }
+
+    /* Ensure metadata columns remain side-by-side */
+    #print-area .etZl4 { display: flex; gap: 12px; align-items: flex-start; }
+    #print-area .VSJNg { min-width: 140px; }
+
+    /* Overall score area: keep svg and description side-by-side */
+    #print-area ._GjP1 { display: flex; align-items: center; gap: 18px; }
+    #print-area ._3idli { display: flex; gap: 18px; align-items: center; }
+    #print-area ._2JU86 svg, #print-area ._2JU86 > svg { width: 160px; height: 160px; }
+
+    /* Subscores: keep in a horizontal row if space allows */
+    #print-area ._2oOJ9 { display: flex; gap: 12px; flex-wrap: nowrap; overflow-x: auto; }
+    #print-area ._3-ZzQ { min-width: 120px; flex: 0 0 auto; }
+
+    /* Keep headings readable but scaled down slightly */
+    #print-area .U9vjW { font-size: 18px; }
+    #print-area ._2PQ62 { font-size: 14px; }
+  }
 </style>
 <!-- saved from url=(0043)https://certs.duollingo.kz/9u3ol6xwafit5rp2/ -->
 <html lang="en"><!--<![endif]-->
@@ -1312,7 +1342,7 @@
                             <text x="80" y="72" fill="#afafaf" font-size="20px" text-anchor="middle"
                               font-weight="700">160</text>
                             <text x="0" y="16" fill="#4b4b4b" font-size="64px" text-anchor="middle"
-                              font-weight="700">125</text>
+                              font-weight="700">127</text>
                           </svg>
                         </svg>
                       </div>
@@ -1351,7 +1381,7 @@
                       <p class="MXncZ _4pY9W">SPEAKING
 
                       </p>
-                      <h1 class="eMSb- Z_Ndv">100
+                      <h1 class="eMSb- Z_Ndv">105
 
                       </h1>
                     </div>
@@ -1359,7 +1389,7 @@
                       <p class="MXncZ _4pY9W">WRITING
 
                       </p>
-                      <h1 class="eMSb- Z_Ndv">130
+                      <h1 class="eMSb- Z_Ndv">132
 
                       </h1>
                     </div>
@@ -1373,7 +1403,7 @@
                     </div>
                     <div class="_3-ZzQ">
                       <p class="MXncZ _4pY9W">LISTENING</p>
-                      <h1 class="eMSb- Z_Ndv">125
+                      <h1 class="eMSb- Z_Ndv">126
 
                       </h1>
                     </div>
