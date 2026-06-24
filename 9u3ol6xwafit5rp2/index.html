@@ -605,30 +605,19 @@
       margin: 0 !important;
       padding: 0 !important;
     }
-    /* Скрываем всё */
     body * {
       visibility: hidden !important;
     }
-    /* Показываем только сертификат */
     #certificate-print-block,
     #certificate-print-block * {
       visibility: visible !important;
     }
     #certificate-print-block {
-      /*
-        Блок имеет width:900px и height~1158px.
-        A4 при 96dpi = 794×1123px.
-        Масштаб по ширине: 794/900 = 0.882
-        Масштаб по высоте: 1123/1158 = 0.970
-        Берём меньший: 0.882 — чтобы всё влезло.
-      */
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
       margin: 0 !important;
-      padding: 48px !important;   /* оригинальный padding сохраняем */
-      width: 900px !important;    /* оригинальная ширина */
-      transform: scale(0.882) !important;
+      width: 900px !important;
       transform-origin: top left !important;
       border-radius: 0 !important;
       border: none !important;
@@ -1383,5 +1372,56 @@
   </div>
   <div class="ReactModalPortal">
   </div>
+ <script>
+  (function () {
+    var btn = document.querySelector('[onclick="window.print()"]');
+    if (!btn) {
+      // fallback: find button by text
+      var btns = document.querySelectorAll('button, [onclick]');
+      for (var i = 0; i < btns.length; i++) {
+        if (btns[i].textContent.trim().indexOf('РАСПЕЧАТАТЬ') !== -1) {
+          btn = btns[i]; break;
+        }
+      }
+    }
+
+    function doPrint() {
+      var cert = document.getElementById('certificate-print-block');
+      if (!cert) { window.print(); return; }
+
+      // A4 at screen resolution (96 dpi) = 794 × 1123 px
+      var A4_W = 794;
+      var A4_H = 1123;
+
+      // Measure the actual rendered block (without any transform)
+      cert.style.transform = '';
+      var r = cert.getBoundingClientRect();
+      var blockW = r.width  || 900;
+      var blockH = r.height || 900;
+
+      // Scale to exactly fill A4
+      var scaleX = A4_W / blockW;
+      var scaleY = A4_H / blockH;
+
+      cert.style.transform = 'scale(' + scaleX + ', ' + scaleY + ')';
+
+      // Wait one frame for the style to apply, then print
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          window.print();
+          // Reset after print dialog closes
+          window.addEventListener('afterprint', function () {
+            cert.style.transform = '';
+          }, { once: true });
+        });
+      });
+    }
+
+    if (btn) {
+      btn.removeAttribute('onclick');
+      btn.addEventListener('click', doPrint);
+    }
+  })();
+ </script>
  </body>
 </html>
