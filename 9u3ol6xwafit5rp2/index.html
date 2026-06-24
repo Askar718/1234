@@ -556,23 +556,71 @@
   <script src="./Duolingo English Test_files/analytics(1)" type="text/javascript">
   </script>
  <style>
+  /* ── fix: убираем пустые зоны сверху и снизу ── */
+  ._1muD_ { min-height: unset !important; }
+  .TxR4u  { min-height: unset !important; }
+  ._290Ib { display: none !important; }
+  ._3UJnX { margin: 16px auto !important; }
+  /* ── end fix ── */
+
+  /* ── печать: одна страница A4 ── */
   @media print {
-   body * {
-    visibility: hidden !important;
-   }
-   #certificate-print-block,
-   #certificate-print-block * {
-    visibility: visible !important;
-   }
-   #certificate-print-block {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 24px !important;
-    box-sizing: border-box !important;
-   }
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 210mm !important;
+      height: 297mm !important;
+      overflow: hidden !important;
+    }
+
+    /* скрыть всё кроме сертификата */
+    body > * { display: none !important; }
+    #app { display: block !important; }
+    #app > * { display: none !important; }
+    #app > div { display: block !important; }
+    #app > div > * { display: none !important; }
+    ._1muD_ { display: block !important; min-height: unset !important; }
+    ._1muD_ > * { display: none !important; }
+    ._1L8UI { display: block !important; }
+    ._1L8UI > * { display: none !important; }
+    ._2HG-o { display: block !important; min-height: unset !important; }
+    ._3UJnX { display: block !important; }
+    ._2Qpr9 { display: none !important; } /* строка «Сертификат + кнопка» */
+
+    /* сам блок сертификата */
+    #certificate-print-block {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 190mm !important;
+      padding: 6mm !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+      gap: 16px !important;
+      font-size: 13px !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* масштабируем крупные фиксированные размеры */
+    ._35GV4 {
+      width: 100% !important;
+      padding: 16px !important;
+    }
+    ._3UJnX {
+      width: 100% !important;
+      margin: 0 !important;
+      border: none !important;
+    }
+    ._2Nq1a { height: 160px !important; }
+    ._1xr-i { width: 180px !important; }
+    ._3JK3z { height: auto !important; flex-wrap: wrap !important; }
+    ._1F2d1 { width: 130px !important; }
+    .cb5cZ  { width: 90px !important; height: 90px !important; }
   }
  </style>
  </head>
