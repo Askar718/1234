@@ -617,11 +617,10 @@
       top: 0 !important;
       left: 0 !important;
       margin: 0 !important;
-      width: 900px !important;
-      transform-origin: top left !important;
       border-radius: 0 !important;
       border: none !important;
       box-shadow: none !important;
+      /* transform и scale задаются через JS */
     }
   }
   /* ── end print ── */
@@ -632,7 +631,7 @@
    <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5DGPVNT" style="display:none;visibility:hidden" width="0">
    </iframe>
   </noscript>
-  <div id="app" onclick="">
+  <div id="app">
    <div style="
      --color-snow: 255, 255, 255;
      --color-snow-always-light: 255, 255, 255;
@@ -854,7 +853,7 @@
           Сертификат
          </p>
          <div class="_3mZxb">
-          <button class="lidYP rvjxI _2oSyN _30Pnx _3iBSc _3F6wx chxL4 _3G5Pn _3Rs-V _3ZVET" onclick="window.print()">
+          <button class="lidYP rvjxI _2oSyN _30Pnx _3iBSc _3F6wx chxL4 _3G5Pn _3Rs-V _3ZVET" onclick="duoPrint()">
            <span class="_2NBfH _37I5l _1svC_" style='mask-image: url("https://dy8n3onijof8f.cloudfront.net/static/images/wp/33882a0d792d674dd0a9.svg");'>
             <img alt="" src="./Duolingo English Test_files/33882a0d792d674dd0a9.svg" style="opacity: 0;"/>
            </span>
@@ -1373,55 +1372,36 @@
   <div class="ReactModalPortal">
   </div>
  <script>
-  (function () {
-    var btn = document.querySelector('[onclick="window.print()"]');
-    if (!btn) {
-      // fallback: find button by text
-      var btns = document.querySelectorAll('button, [onclick]');
-      for (var i = 0; i < btns.length; i++) {
-        if (btns[i].textContent.trim().indexOf('РАСПЕЧАТАТЬ') !== -1) {
-          btn = btns[i]; break;
-        }
-      }
-    }
+  function duoPrint() {
+    var cert = document.getElementById('certificate-print-block');
+    if (!cert) { window.print(); return; }
 
-    function doPrint() {
-      var cert = document.getElementById('certificate-print-block');
-      if (!cert) { window.print(); return; }
+    // Сброс любого предыдущего transform
+    cert.style.transform = '';
+    cert.style.transformOrigin = '';
 
-      // A4 at screen resolution (96 dpi) = 794 × 1123 px
-      var A4_W = 794;
-      var A4_H = 1123;
+    // Измеряем реальный размер блока
+    var r = cert.getBoundingClientRect();
+    var blockW = r.width  || 900;
+    var blockH = r.height || 900;
 
-      // Measure the actual rendered block (without any transform)
-      cert.style.transform = '';
-      var r = cert.getBoundingClientRect();
-      var blockW = r.width  || 900;
-      var blockH = r.height || 900;
+    // A4 в пикселях при 96 dpi: 794 × 1123
+    var scaleX = 794  / blockW;
+    var scaleY = 1123 / blockH;
 
-      // Scale to exactly fill A4
-      var scaleX = A4_W / blockW;
-      var scaleY = A4_H / blockH;
+    // Применяем масштаб
+    cert.style.transformOrigin = 'top left';
+    cert.style.transform = 'scale(' + scaleX + ',' + scaleY + ')';
 
-      cert.style.transform = 'scale(' + scaleX + ', ' + scaleY + ')';
-
-      // Wait one frame for the style to apply, then print
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          window.print();
-          // Reset after print dialog closes
-          window.addEventListener('afterprint', function () {
-            cert.style.transform = '';
-          }, { once: true });
-        });
-      });
-    }
-
-    if (btn) {
-      btn.removeAttribute('onclick');
-      btn.addEventListener('click', doPrint);
-    }
-  })();
+    // Даём браузеру применить стиль, затем печатаем
+    setTimeout(function () {
+      window.print();
+      window.addEventListener('afterprint', function () {
+        cert.style.transform = '';
+        cert.style.transformOrigin = '';
+      }, { once: true });
+    }, 100);
+  }
  </script>
  </body>
 </html>
