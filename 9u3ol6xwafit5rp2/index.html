@@ -562,48 +562,70 @@
   ._290Ib { display: none !important; }
   ._3UJnX { margin: 16px auto !important; }
   /* ── end fix ── */
- </style>
 
- <script>
-  function printCertificate() {
-    var certBlock = document.getElementById('certificate-print-block');
-    if (!certBlock) { window.print(); return; }
-
-    var certHTML = certBlock.outerHTML;
-
-    // Собираем все <style> со страницы
-    var styleContent = '';
-    document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
-      styleContent += '<link rel="stylesheet" href="' + link.href + '">';
-    });
-    document.querySelectorAll('style').forEach(function(s) {
-      styleContent += '<style>' + s.innerHTML + '</style>';
-    });
-
-    var printWin = window.open('', '_blank', 'width=900,height=700');
-    printWin.document.write(
-      '<!DOCTYPE html><html><head>' +
-      '<meta charset="UTF-8">' +
-      styleContent +
-      '<style>' +
-        '@page { size: A4 portrait; margin: 10mm; }' +
-        'body { margin: 0; padding: 0; background: #fff; display: flex; justify-content: center; align-items: flex-start; }' +
-        '._35GV4 { width: 175mm !important; padding: 24px !important; border-radius: 0 !important; gap: 20px !important; }' +
-        '._2Nq1a { height: 180px !important; }' +
-        '._1xr-i  { width: 200px !important; }' +
-        '._3JK3z  { height: auto !important; padding: 12px !important; }' +
-        '._1F2d1  { width: 140px !important; }' +
-        '.cb5cZ   { width: 100px !important; height: 100px !important; }' +
-        '._2r08x  { width: auto !important; }' +
-      '</style>' +
-      '</head><body>' +
-      certHTML +
-      '<script>window.onload=function(){window.print();window.onafterprint=function(){window.close();};}<\/script>' +
-      '</body></html>'
-    );
-    printWin.document.close();
+  /* ── выпадающие меню навигации ── */
+  ._921H- {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
   }
- </script>
+  ._921H- ._3yp8Y {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: .5em 0;
+    z-index: 1000;
+    min-width: 12em;
+  }
+  ._921H-:hover > ._3yp8Y {
+    display: block !important;
+  }
+  ._921H- ._3yp8Y a {
+    display: block;
+    padding: .4em 1em;
+    color: #555;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  ._921H- ._3yp8Y a:hover {
+    background: #f0f0f0;
+  }
+  /* ── end dropdown ── */
+
+  /* ── печать: только блок сертификата, одна страница ── */
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    body * {
+      visibility: hidden !important;
+    }
+    #certificate-print-block,
+    #certificate-print-block * {
+      visibility: visible !important;
+    }
+    #certificate-print-block {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 32px 40px !important;
+      box-sizing: border-box !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+    }
+    ._2r08x { width: auto !important; }
+    ._3JK3z { height: auto !important; padding: 16px !important; }
+    ._2Nq1a { height: 200px !important; }
+  }
+  /* ── end print ── */
+ </style>
  </head>
  <body>
   <noscript>
@@ -816,7 +838,7 @@
           Сертификат
          </p>
          <div class="_3mZxb">
-          <button class="lidYP rvjxI _2oSyN _30Pnx _3iBSc _3F6wx chxL4 _3G5Pn _3Rs-V _3ZVET" onclick="printCertificate()">
+          <button class="lidYP rvjxI _2oSyN _30Pnx _3iBSc _3F6wx chxL4 _3G5Pn _3Rs-V _3ZVET" onclick="window.print()">
            <span class="_2NBfH _37I5l _1svC_" style='mask-image: url("https://dy8n3onijof8f.cloudfront.net/static/images/wp/33882a0d792d674dd0a9.svg");'>
             <img alt="" src="./Duolingo English Test_files/33882a0d792d674dd0a9.svg" style="opacity: 0;"/>
            </span>
