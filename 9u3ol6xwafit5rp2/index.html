@@ -613,16 +613,23 @@
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      width: 100% !important;
+      /* Снимаем фиксированную ширину 900px из оригинального CSS */
+      width: 100vw !important;
+      max-width: 100vw !important;
       margin: 0 !important;
-      padding: 32px 40px !important;
+      padding: 28px 36px !important;
       box-sizing: border-box !important;
       border-radius: 0 !important;
-      max-width: 100% !important;
+      border: none !important;
+      gap: 24px !important;
     }
+    /* Снимаем фиксированную ширину 520px у блоков описания */
     ._2r08x { width: auto !important; }
-    ._3JK3z { height: auto !important; padding: 16px !important; }
+    /* Подстраиваем высоту score-блоков */
+    ._3JK3z { height: auto !important; padding: 16px 20px !important; }
     ._2Nq1a { height: 200px !important; }
+    /* Фото чуть меньше */
+    .cb5cZ  { width: 100px !important; height: 100px !important; }
   }
   /* ── end print ── */
  </style>
@@ -718,22 +725,38 @@
           <span class="_2Ik8i">
            <span class="g3gWc DGbsH">
             <span class="_921H- DGbsH" data-test="taking-the-test">
-             <p class="MXncZ _2-rJ0 bR9Hw">
-              УЧАСТНИКАМ
-             </p>
+             <p class="MXncZ _2-rJ0 bR9Hw">УЧАСТНИКАМ</p>
              <img alt="arrow" src="./Duolingo English Test_files/0ec915796f429e8d9c17.svg"/>
+             <div class="_3yp8Y">
+               <a href="https://englishtest.duolingo.com/applicants">Основные сведения</a>
+               <a href="https://englishtest.duolingo.com/test_takers/accepting_institutions">Доступные учреждения</a>
+               <a href="https://englishtest.duolingo.com/test_takers/scores">Толкование результатов</a>
+               <a href="https://englishtest.duolingo.com/prepare">Подготовка</a>
+               <a href="https://englishtest.duolingo.com/test_takers/accommodations">Специальные возможности</a>
+             </div>
             </span>
             <span class="_921H- DGbsH" data-test="accepting-the-test">
-             <p class="MXncZ _2-rJ0 bR9Hw">
-              УЧРЕЖДЕНИЯ
-             </p>
+             <p class="MXncZ _2-rJ0 bR9Hw">УЧРЕЖДЕНИЯ</p>
              <img alt="arrow" src="./Duolingo English Test_files/0ec915796f429e8d9c17.svg"/>
+             <div class="_3yp8Y">
+               <a href="https://englishtest.duolingo.com/institutions/overview">Основные сведения</a>
+               <a href="https://englishtest.duolingo.com/institutions/security">Безопасность тестирования</a>
+               <a href="https://englishtest.duolingo.com/institutions/scores">Толкование результатов</a>
+               <a href="https://englishtest.duolingo.com/institutions/access">Программа повышения доступности</a>
+               <a href="https://englishtest.duolingo.com/institutions/resources">Ресурсы</a>
+             </div>
             </span>
             <span class="_921H- DGbsH" data-test="test-research">
-             <p class="MXncZ _2-rJ0 bR9Hw">
-              ИССЛЕДОВАТЕЛИ
-             </p>
+             <p class="MXncZ _2-rJ0 bR9Hw">ИССЛЕДОВАТЕЛИ</p>
              <img alt="arrow" src="./Duolingo English Test_files/0ec915796f429e8d9c17.svg"/>
+             <div class="_3yp8Y">
+               <a href="https://englishtest.duolingo.com/research">Основные сведения</a>
+               <a href="https://englishtest.duolingo.com/research/publications">Публикации</a>
+               <a href="https://englishtest.duolingo.com/research/standards">Стандарты</a>
+               <a href="https://englishtest.duolingo.com/research/our_team">Наша команда исследователей</a>
+               <a href="https://englishtest.duolingo.com/research/grants">Награды и гранты</a>
+               <a href="https://blog.englishtest.duolingo.com/" target="_blank">Блог</a>
+             </div>
             </span>
            </span>
            <div class="_2YxGL" style="
